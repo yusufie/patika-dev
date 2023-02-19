@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- <link rel="stylesheet" href="style.css" /> -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=PT+Serif:ital,wght@0,400;0,700;1,400&family=Raleway:wght@400;600;900&display=swap" rel="stylesheet">
+    <title>04:17</title>
+  </head>
+
+  <body id="all" class="d-flex m-auto text-center text-white font-weight-bolder">
+  <style>
+        body {
+          font-family: 'Raleway', sans-serif;
+          font-size: 35px;
+          background-image: linear-gradient(to top, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('/clock-timer/images/deprem.jpg');
+          background-size: cover;
+          background-position: center;
+          background-repeat: no-repeat;
+          background-attachment: fixed;
+        }
+  </style>
+    <!-------------- Div -------------->
+<div>
+      <!-------------- Logo -------------->
+      <img id="kodluyoruz-logo" class="w-25 mt-5" src="/clock-timer/images/log.png" alt="Logo">
+      <br>
+
+      <!-------------- Username -------------->
+      <div class="d-flex flex-row text-center align-items-center justify-content-center">
+      <p id="merhaba" class="inbl ass"></p>
+      <p id="username" class="d-inline font-weight-bolder"></p>
+      <p id="pray" class="inbl ass"></p>
+      </div>
+
+
+  <!-------------- Date -------------->
+  <span id="tarih"></span>
+  -
+  <span id="saat"></span>
+  <br>
+  <br>
+  <span id="subtract" class="text-danger"></span>
+
+    <!-------------- Clock -------------->
+
+    <p id="sake" class="font-weight-bolder mt-5"><span id="earthquake" class=" font-weight-bolder">6 Şubat 2023</span> tarihinde yaşanan deprem de <br>
+        hayatını kaybedenlerin anısına...</p>
+</div>
+
+      <script src="clock.js"></script> 
+
+  </body>
+</html>
