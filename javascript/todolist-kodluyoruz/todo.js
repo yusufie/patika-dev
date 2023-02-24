@@ -1,5 +1,5 @@
-
-// Tüm elementleri seçme
+// Selectors
+const body = document.querySelector("body");
 const form = document.querySelector("#todo-form");
 const todoInput = document.querySelector("#todo");
 const todoList = document.querySelector(".list-group");
@@ -7,25 +7,35 @@ const firstCardBody = document.querySelectorAll(".card-body")[0];
 const secondCardBody = document.querySelectorAll(".card-body")[1];
 const filter = document.querySelector("#filter");
 const clearButton = document.querySelector("#clear-todos");
-
+const alertDiv = document.querySelector("#alert");
 
 eventListeners();
 
 
-function eventListeners() { // Tüm event listenerlar
+function eventListeners() { // All event listeners
     form.addEventListener("submit", addTodo);
     document.addEventListener("DOMContentLoaded", loadAllTodosToUI);
     secondCardBody.addEventListener("click", deleteTodo);
     filter.addEventListener("keyup", filterTodos);
     clearButton.addEventListener("click", clearAllTodos);
+    todoList.addEventListener("click", toggleDone);
 }
 
 
+function toggleDone (e) {
+    if (e.target.tagName === 'LI') {
+        // toggle the 'done' class on the clicked list item
+        e.target.classList.toggle('done');
+    }
+}
+
+
+
 function clearAllTodos(e) {
-    if (confirm("Tümünü silmek istediğinize emin misiniz?")) {
-        // arayüzden todoları temizleme
+    if (confirm("Hepsini silmek istediğinize emin misiniz?")) {
+        // delete all todos from UI
         todoList.innerHTML = "";
-        // storagedan todoları temizleme
+        // delete all todos from storage
         localStorage.removeItem("todos");
     }
 }
@@ -38,7 +48,7 @@ function filterTodos(e) {
     listItems.forEach(function (listItem) {
         const text = listItem.textContent.toLocaleLowerCase();
         if (text.indexOf(filterValue) === -1) {
-            // bulamadı
+            // could not find
             listItem.setAttribute("style", "display : none !important");
         }
         else {
@@ -61,7 +71,7 @@ function deleteTodoFromStorage(deleteTodo) {
     let todos = getTodosFromStorage();
     todos.forEach(function (todo, index) {
         if (todo === deleteTodo) {
-            todos.splice(index, 1); // Arrayden değeri silebiliriz.
+            todos.splice(index, 1); // delete todo from array
         }
     });
 
@@ -79,8 +89,7 @@ function loadAllTodosToUI() {
 
 
 function addTodo(e) {
-    const newTodo = todoInput.value.trim(); // buradaki trim fonksiyonu stringin basşındaki veya sonundaki boşlukları siler
-
+    const newTodo = todoInput.value.trim(); // trim deletes the spaces from the beginning and the end of the string
 
     if (newTodo === "") {
         showAlert("danger", "Listeye boş ekleme yapamazsınız!");
@@ -91,15 +100,11 @@ function addTodo(e) {
         showAlert("success", "Todo başarıyla eklendi...");
     }
 
-
-
-
-
-    e.preventDefault(); // formumuzun tekrardan sayfaya yönelmemesi için 
+    e.preventDefault(); // doesn't let refresh the page
 }
 
 
-function getTodosFromStorage() { // Storagedan Todoları Alan fonksiyon
+function getTodosFromStorage() { // gets todos from storage
     let todos;
 
     if (localStorage.getItem("todos") === null) {
@@ -111,6 +116,7 @@ function getTodosFromStorage() { // Storagedan Todoları Alan fonksiyon
     return todos;
 }
 
+
 function addTodoToStorage(newTodo) {
     let todos = getTodosFromStorage();
 
@@ -120,45 +126,40 @@ function addTodoToStorage(newTodo) {
 }
 
 
-
-function showAlert(type, message) { // uyarıları ayarladıgımız fonksiyon
+function showAlert(type, message) { // shows the alert message
     const alert = document.createElement("div");
     alert.className = `alert alert-${type}`;
     alert.textContent = message;
 
-    firstCardBody.appendChild(alert);
+    alertDiv.appendChild(alert);
 
 
-    setTimeout(function () {   // alerti silmek için (setTimeout ayarlı)
+    setTimeout(function () {   // deletes the alert message after 3 seconds
         alert.remove();
-    }, 2000)
+    }, 3000)
 }
 
 
 
-function addTodoToUI(newTodo) {  // aldığı string değerini liste elemanı olarak ekleyecek fonksiyon
+function addTodoToUI(newTodo) {  // adds strings to the list
 
-    // List İtem Oluşturma
+    // create list item
     const listItem = document.createElement("li");
 
-    // Link oluşturma
+    // create a link
     const link = document.createElement("a");
     link.href = "#";
-    link.className = "delete-item";
+    link.className = "delete-item text-danger";
     link.innerHTML = "<i class = 'fa fa-remove'></i>";
-
-
 
     listItem.className = "list-group-item d-flex justify-content-between";
 
-    //Text Node Ekleme
+    // add text node
     listItem.appendChild(document.createTextNode(newTodo));
     listItem.appendChild(link);
 
-
-    //Todo List'e list itemı ekleme (yani ul ye ekleme)
+    // add list item to the list    
     todoList.appendChild(listItem);
 
-
-    todoInput.value = "" // inputun içini boşaltmak için
+    todoInput.value = "" // deletes the text from the input after adding it to the list
 }
