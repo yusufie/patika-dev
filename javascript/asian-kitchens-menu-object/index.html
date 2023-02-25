@@ -16,8 +16,6 @@
       integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1"
       crossorigin="anonymous"
     />
-    <!-- CSS -->
-    <!-- <link rel="stylesheet" href="style.css" /> -->
   </head>
 
   <style>
@@ -71,27 +69,41 @@
       padding-top: 20px;
     }
 
+    .highlight {
+      background-color: yellow;
+    }
+
   </style>
 
   <body>
+
     <div class="container">
       <section class="menu mt-5">
+
         <!-- title -->
         <div class="title">
           <h2>Asian Kitchen's Menu</h2>
         </div>
+
         <!-- filter buttons-->
         <div class="btn-container d-flex justify-content-center align-items-center mt-5 mb-5"></div>
+        
+        <!-- search form -->
+        <div class="search-form">
+          <input type="text" class="form-control search-input" placeholder="Search menu...">
+        </div>
+        
         <!-- menu items -->
         <div class="section-center row">
           <!-- single-item -->
-
           <!-- end of single item -->
         </div>
+
       </section>
     </div>
 
     <!-- javascript -->
     <script type="module" src="./app.js"></script>
+
   </body>
 </html>
