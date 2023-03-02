@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Google!</title>
+</head>
+<body>
+    <form method="GET" action="http://www.google.com/search">
+
+        <div style="text-align: center;">
+            <img src="http://www.google.com/google.jpg" style="width: 360px; height: 120px;"  alt="Google!">
+        </div>
+
+        <div 
+            style="text-align: center; 
+                    background-color: #EEEEEE; 
+                    column-span: none; 
+                    margin-left: 5%; 
+                    margin-right: 5%;">
+
+            <p style="margin: 0px;">Search the web using Google!</p>
+            <input type="text" name="q" value="" size="40"><br>
+            <input type="submit" value="Google Search">
+            <input type="submit" name="sa" value="I'm feeling lucky">
+        </div>
+
+        <div class="grid-container" style="
+            display: grid;
+            grid-template-columns: auto auto auto;
+            grid-gap: 0.15rem;
+            text-align: center;
+            margin-left: 5%;
+            margin-right: 5%;">
+
+                <div class="grid-item" style="
+                background-color: #7EE5DA;
+                border: none;
+                text-align: center;
+                padding: 1rem;
+                " 
+                >                
+                <p style="margin: 0px;">Special Searches</p>
+                <a href="https://www.stanford.edu/search/">Stanford Search</a><br>
+                <a href="http://www.google.com/linux">Linux Search</a><br></div>
+
+                <div class="grid-item" style="
+                background-color: #70CCC2;
+                border: none;
+                text-align: center;" >                
+                    <a href="https://support.google.com/">Help!</a> <br>
+                    <a href="https://about.google/">About Google!</a> <br>
+                    <a href="https://www.globaldata.com/company-profile/google-llc/">Company Info</a> <br>
+                    <a href="https://www.google.com/doodle">Google! Logos</a> <br>
+                </div>
+
+                <div class="grid-item" style="
+                background-color: #62B3AA;
+                border: none;
+                text-align: center;" >
+                    <p style="margin: 0px;">Get Google!</p>
+                    <p style="margin: 0px;">updates monthly:</p> 
+                    <input type="hidden" name="listname" value="google-friends">
+                    <input type="text" name="emailaddr" value="your e-mail"> <br>
+                    <input type="submit" name="SubmitAction" value="Subscribe"> 
+                    &nbsp;&nbsp;
+                    <a href="https://get.google.com/archive">Archive</a>
+                </div>  
+        </div>
+    </form>
+    <p style="text-align: center;"> Copyright &copy;1998 Google Inc.</p>
+
+</form>
+</body>
+</html>
