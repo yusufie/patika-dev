@@ -1,0 +1,40 @@
+#root > div > div:nth-child(1) > div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    padding: 1rem;
+    width: 100%;
+    background-color: #fff;
+    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.1);
+    border-radius: 1rem;
+}
+
+#root > div > div:nth-child(1) {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    padding: 1rem;
+    margin-top: 1rem;
+}
+
+
+
+div:nth-child(1) > div > select {
+    padding-right: 32px;
+    font-size: larger;
+    font-weight: 800;
+}
+
+#root > div > div:nth-child(1) > div > div > label {
+    font-size: 1.2rem;
+    font-weight: 600;
+}
+
+
+@media(max-width:762px){
+    .mobile{  flex-wrap: wrap; }
+    .app{display: flex; justify-content: center; margin: "0 auto" ;}
+
+}
