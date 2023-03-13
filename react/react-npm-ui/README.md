@@ -23,4 +23,4 @@ function App() {
 
 export default App;
 ```
-![alt text](./trap-button/src/images/readme.png)
+![alt text](./readme.png)
