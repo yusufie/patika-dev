@@ -1,0 +1,17 @@
+.App {
+  text-align: center;
+  width: 1500px;
+  height: max-content !important;
+  margin: 10px auto;
+  font-weight: bold;
+}
+
+.App h1 {
+  color: #ffffff;
+  font-size: 60px;
+  margin: 20px 0;
+}
+
+div.styles_textareaContainer__kbztx > span > i {
+  color: #00f911;
+}

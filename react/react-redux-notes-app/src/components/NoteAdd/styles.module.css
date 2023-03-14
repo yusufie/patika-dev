@@ -1,0 +1,51 @@
+.textareaContainer {
+  width: 340px !important;
+  height: 280px !important;
+  margin: 0 auto;
+  position: relative;
+}
+
+.textarea {
+  padding: 20px;
+  width: 300px;
+  height: 240px;
+  border: none;
+  resize: none;
+  overflow-y: auto;
+  font-size: 20px;
+}
+
+.textarea::placeholder {
+  color: white;
+  font-size: 20px;
+}
+
+.colors {
+  position: absolute;
+  right: 0;
+  top: 0;
+  transform: translateX(36px);
+  z-index: 5000;
+  width: max-content;
+  height: max-content;
+}
+
+.colorPin {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  transform: translateX(40px);
+  z-index: 5000;
+  cursor: pointer;
+}
+
+.color {
+  background-color: transparent;
+  width: 32px !important;
+  height: 32px !important;
+  margin: 5px 0;
+  border-radius: 50%;
+  display: block;
+  cursor: pointer;
+  opacity: 0.8;
+}
