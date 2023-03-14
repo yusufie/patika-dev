@@ -4,7 +4,10 @@
 
 The app lets you spend Bill GATES' money by choosing certain products. You can also see the receipt at the end of the page.
 
-↪️ See it live!
+📷 Screenshots
+![alt text](./src/images/readme.png)
+
+↪️ 🔗 Live Demo Link:
 https://
 
 

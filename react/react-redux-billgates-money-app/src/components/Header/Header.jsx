@@ -5,7 +5,7 @@ function Header() {
     <>
       <Container
         maxW="container.xl"
-        bg="green.400"
+        bg=""
         color="#262626"
         padding={7}
         borderRadius="15"

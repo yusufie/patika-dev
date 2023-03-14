@@ -16,7 +16,7 @@ function Table() {
       <Container
         maxW="container.xl"
         bg="green.400"
-        color="#262626"
+        color="white"
         borderRadius={10}
         position="-webkit-sticky"
         pos="sticky"
