@@ -1,0 +1,10 @@
+body {
+  background-color: #200000;
+  color: white;
+}
+.App {
+  font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+  width: 80%;
+  margin: auto;
+  font-size: x-large;
+}
