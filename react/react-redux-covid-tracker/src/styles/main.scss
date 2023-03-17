@@ -1,0 +1,15 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap');
+$font-family-base: Roboto;
+$headings-font-family: Roboto;
+
+$enable-grid-classes:false;
+$primary:#7F0FFF;
+$secondary:#bed6d5;
+$success:#008414;
+$danger:#ff0000;
+$info:#7ebcfa;
+$warning:#ff9933;
+$light:#eef0f2;
+$dark:#000633;
+
+@import "../../node_modules/bootstrap/scss/bootstrap";
