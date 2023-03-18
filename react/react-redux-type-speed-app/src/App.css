@@ -1,0 +1,35 @@
+.App {
+  text-align: center;
+  margin-top: 8rem;
+  justify-content:center !important;
+  align-items:center;
+  width: auto;
+  height: 100vh;
+}
+body{
+  background-image: url(./assets/keyboard.jpg);
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+  background-size: 100% 100%;
+}
+
+/* ! Phone size */
+@media (max-width: 600px) {
+    .App{
+      justify-content:center !important;
+      align-items:center;
+      margin-left: 100px;
+      /* margin-right: 100px; */
+      width: 400px;
+    }
+    body{
+      justify-content:center ;
+      align-items:center;
+      background-image: url(./assets/keyboard.jpg);
+      background-repeat: no-repeat;
+      background-attachment: fixed;
+      background-size: cover;
+      background-size: 100% 100%;
+    }
+}

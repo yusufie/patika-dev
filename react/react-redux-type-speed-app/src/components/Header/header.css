@@ -1,0 +1,27 @@
+.header{
+    text-align: center;
+}
+.heading{
+    font-family: 'Roboto Mono', monospace;
+    font-size: 50px;
+    /* color:#EF4395 */
+    color: #00AC2A;
+}
+
+/* ! Phone size */
+
+@media (max-width: 450px) {
+    
+    .header{
+        text-align: center;
+        display: flex;
+        justify-content: center ;
+    }
+    .heading{
+        font-family: 'Roboto Mono', monospace;
+        font-size: 45px;
+       
+        /* color:#EF4395 */
+        color:#00C6DA
+    }
+}
