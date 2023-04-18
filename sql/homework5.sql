@@ -17,3 +17,10 @@ SELECT * FROM customer
 WHERE store_id = 1
 ORDER BY last_name DESC
 LIMIT 4;
+
+
+-- PostgreSQL Installation Steps
+--https://www.postgresql.org/download/
+
+-- Sample Database [dvdrental]
+-- https://www.postgresqltutorial.com/wp-content/uploads/2019/05/dvdrental.zip

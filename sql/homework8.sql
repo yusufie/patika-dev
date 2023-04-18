@@ -32,3 +32,11 @@ DELETE FROM employee WHERE id = 7 RETURNING*;
 DELETE FROM employee WHERE email = 'jbennington6@stanford.edu' RETURNING*;
 DELETE FROM employee WHERE name = 'Eugenie' RETURNING*;
 DELETE FROM employee WHERE birthday = '2011-05-31' RETURNING*;
+
+
+
+-- PostgreSQL Installation Steps
+--https://www.postgresql.org/download/
+
+-- Sample Database [dvdrental]
+-- https://www.postgresqltutorial.com/wp-content/uploads/2019/05/dvdrental.zip

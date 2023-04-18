@@ -18,3 +18,10 @@ SELECT country_id, COUNT(*) FROM city
 GROUP BY country_id
 ORDER BY COUNT(*) DESC
 LIMIT 1;
+
+
+-- PostgreSQL Installation Steps
+--https://www.postgresql.org/download/
+
+-- Sample Database [dvdrental]
+-- https://www.postgresqltutorial.com/wp-content/uploads/2019/05/dvdrental.zip

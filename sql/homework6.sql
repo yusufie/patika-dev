@@ -14,3 +14,10 @@ WHERE rental_rate = 0.99;
 -- 4. film tablosunda bulunan filmlerin uzunluğu 150 dakikadan büyük olanlarına ait kaç farklı replacement_cost değeri vardır?
 SELECT COUNT(DISTINCT replacement_cost) FROM film
 WHERE length > 150;
+
+
+-- PostgreSQL Installation Steps
+--https://www.postgresql.org/download/
+
+-- Sample Database [dvdrental]
+-- https://www.postgresqltutorial.com/wp-content/uploads/2019/05/dvdrental.zip

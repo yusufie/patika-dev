@@ -15,3 +15,10 @@ SELECT last_name FROM customer WHERE first_name = 'Mary';
 
 -- 5. film tablosundaki uzunluğu(length) 50 den büyük olmayıp aynı zamanda rental_rate değeri 2.99 veya 4.99 olmayan verileri sıralayınız.
 SELECT * FROM film WHERE length <= 50 AND NOT (rental_rate = 2.99 OR rental_rate = 4.99);
+
+
+-- PostgreSQL Installation Steps
+--https://www.postgresql.org/download/
+
+-- Sample Database [dvdrental]
+-- https://www.postgresqltutorial.com/wp-content/uploads/2019/05/dvdrental.zip

@@ -18,3 +18,9 @@ WHERE country LIKE '_____';
 SELECT COUNT(*) FROM city
 WHERE city ILIKE '%r';
 
+
+-- PostgreSQL Installation Steps
+--https://www.postgresql.org/download/
+
+-- Sample Database [dvdrental]
+-- https://www.postgresqltutorial.com/wp-content/uploads/2019/05/dvdrental.zip

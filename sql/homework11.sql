@@ -28,3 +28,9 @@ SELECT first_name FROM actor
 EXCEPT ALL
 SELECT first_name FROM customer;
 
+
+-- PostgreSQL Installation Steps
+--https://www.postgresql.org/download/
+
+-- Sample Database [dvdrental]
+-- https://www.postgresqltutorial.com/wp-content/uploads/2019/05/dvdrental.zip
