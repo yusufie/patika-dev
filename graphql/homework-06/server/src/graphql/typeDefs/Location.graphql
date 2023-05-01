@@ -1,0 +1,39 @@
+type Location {
+  id: ID!
+  name: String!
+  desc: String!
+  lat: Float!
+  lng: Float!
+}
+
+input CreatedLocationInput {
+  name: String!
+  desc: String!
+  lat: Float!
+  lng: Float!
+}
+
+input UpdatedLocationInput {
+  name: String
+  desc: String
+  lat: Float
+  lng: Float
+}
+
+type Query {
+  locations: [Location!]!
+  location(id: ID!): Location!
+}
+
+type Mutation {
+  createdLocation(data: CreatedLocationInput!): Location!
+  updatedLocation(id: ID!, data: UpdatedLocationInput!): Location!
+  deletedLocation(id: ID!): Location!
+  deletedAllLocation: DeleteAllOutput!
+}
+
+type Subscription {
+  locationCreated: Location!
+  locationUpdated: Location!
+  locationDeleted: Location!
+}
