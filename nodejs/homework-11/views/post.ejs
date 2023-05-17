@@ -1,0 +1,47 @@
+<%- include('partials/_header') %>
+
+
+<body>
+
+  <%- include('partials/_navigation') %>
+
+  
+  <!-- Page Header -->
+  <header class="masthead" style="background-image: url('<%= postdetail.image %>')">
+    <div class="overlay"></div>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 col-md-10 mx-auto">
+          <div class="post-heading">
+            
+            
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Post Content -->
+  <article>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 col-md-10 mx-auto">
+
+          <h2 class="section-heading"><%= postdetail.title %></h2>
+
+          <p> <%= postdetail.detail %> </p>
+          <a href="/posts/edit/<%= postdetail._id %>" class="btn btn-secondary">UPDATE</a>
+          <a href="/posts/<%= postdetail._id %>?_method=DELETE" class="btn btn-danger" onclick="return confirm('Are You Sure ?');">DELETE</a>
+        </div>
+      </div>
+    </div>
+  </article>
+
+  <hr>
+
+  <%- include('partials/_footer') %>
+
+
+</body>
+
+</html>
