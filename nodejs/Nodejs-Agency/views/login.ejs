@@ -1,0 +1,77 @@
+<%- include("./partials/page_header.ejs") %>
+<div class="container rounded" style="height: 50vh; margin-top: 10%">
+  <div class="d-flex h-100 align-items-center justify-content-center bg-light mt-5">
+    <% if(login) { %>
+        <form action="/login" method="POST">
+            <h2>Login</h2>
+            <div class="form-group">
+              <label for="email">Email address</label>
+              <input
+                type="email"
+                class="form-control"
+                id="email"
+                name="email"
+                aria-describedby="emailHelp"
+                placeholder="Enter email"
+              />
+              <small id="emailHelp" class="form-text text-muted"
+                >We'll never share your email with anyone else.</small
+              >
+            </div>
+            <div class="form-group">
+              <label for="password">Password</label>
+              <input
+                type="password"
+                class="form-control"
+                id="password"
+                name="password"
+                placeholder="Password"
+              />
+            </div>
+      
+            <button type="submit" class="btn btn-primary mt-3">Submit</button>
+          </form>
+    <% } else { %>
+        <form action="/register" method="POST">
+            <h2 class="border-bottom">Register</h2>
+            <div class="form-group">
+              <label for="email">Email address</label>
+              <input
+                type="email"
+                class="form-control"
+                id="email"
+                name="email"
+                aria-describedby="emailHelp"
+                placeholder="Enter email"
+              />
+              <small id="emailHelp" class="form-text text-muted"
+                >We'll never share your email with anyone else.</small
+              >
+            </div>
+            <div class="form-group">
+              <label for="password">Password</label>
+              <input
+                type="password"
+                class="form-control"
+                id="password"
+                name="password"
+                placeholder="Password"
+              />
+            </div>
+            <div class="form-group">
+                <label for="confirm-password">Password Confirm</label>
+                <input
+                  type="password"
+                  class="form-control"
+                  id="password-confirm"
+                  name="password-confirm"
+                  placeholder="Password Confirm"
+                />
+              </div>
+            <button type="submit" class="btn btn-primary mt-3">Submit</button>
+          </form>
+    <% } %>
+  </div>
+</div>
+</body>
+</html>

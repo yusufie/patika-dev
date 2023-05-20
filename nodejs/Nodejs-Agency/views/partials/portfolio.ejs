@@ -1,0 +1,96 @@
+<!-- Portfolio Grid-->
+<section class="page-section bg-light" id="portfolio">
+    <div class="container">
+      <div class="text-center">
+        <h2 class="section-heading text-uppercase">Portfolio <% if(userID) { %>
+          ( <a type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#portfolioAddModal">add</a> )      
+        <% } %></h2>
+        <h3 class="section-subheading text-muted">
+          Lorem ipsum dolor sit amet consectetur.
+        </h3>
+      </div>
+
+      <!-- Modal -->
+      <div class="modal fade" id="portfolioAddModal" tabindex="-1" aria-labelledby="portfolioAddModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <form action="/portfolios" method="POST"  enctype="multipart/form-data" accept="jpg, png, jpeg, svg, bmp">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h1 class="modal-title fs-5" id="exampleModalLabel">Add New Portfolio</h1>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div class="mb-3">
+                  <label for="title" class="col-form-label">Title:</label>
+                  <input type="text" class="form-control" id="title" name="title" required>
+                </div>
+                <div class="mb-3">
+                  <label for="brief" class="col-form-label">Short Description:</label>
+                  <input type="text" class="form-control" id="brief" name="brief" required>
+                </div>
+                <div class="mb-3">
+                  <label for="client" class="col-form-label">Client:</label>
+                  <input type="text" class="form-control" id="client" name="client" required>
+                </div>
+                <div class="mb-3">
+                  <label for="category" class="col-form-label">Category:</label>
+                  <input type="text" class="form-control" id="category" name="category" required>
+                </div>
+                <div class="mb-3">
+                  <label for="photo" class="col-form-label">Photo:</label>
+                  <input type="file" class="form-control" id="photo" name="photo" required>
+                </div>
+                <div class="mb-3">
+                  <label for="description" class="col-form-label">Description:</label>
+                  <textarea class="form-control" id="description" name="description" required></textarea>
+                </div>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+              <button type="submit" class="btn btn-primary">Save</button>
+            </div>
+          </form>
+          </div>
+        </div>
+      </div>
+      <!-- Modal Ends-->
+
+      <div class="row">
+        <% if(portfolios) { 
+          portfolios.forEach(portfolio => {   
+        %> 
+            <!-- Portfolio item 1-->
+            <div class="col-lg-4 col-sm-6 mb-4">
+            <div class="portfolio-item">
+              <a
+                class="portfolio-link"
+                data-bs-toggle="modal"
+                href="#p<%= portfolio._id %>"
+              >
+                <div class="portfolio-hover">
+                  <div class="portfolio-hover-content">
+                    <i class="fas fa-plus fa-3x"></i>
+                  </div>
+                </div>
+                <img class="img-fluid" src="/uploads/<%= portfolio.photo %>" alt="<%= portfolio.title %>" />
+              </a>
+              <div class="portfolio-caption">
+                <div class="portfolio-caption-heading"><%= portfolio.title %></div>
+                <div class="portfolio-caption-subheading text-muted">
+                  <%= portfolio.category %>
+                </div>
+                <% if(userID) { %>
+                  <div>
+                    <a href="/portfolios/delete/<%= portfolio._id %>" class="btn btn-danger" onclick="return confirm('Are you sure?')">DELETE</a>
+                  </div>
+                <% } %>
+              </div>
+            </div>
+          </div>
+          
+        <% })} %>
+
+      </div>
+
+    </div>
+  </section>
