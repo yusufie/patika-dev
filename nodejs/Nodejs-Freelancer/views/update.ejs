@@ -1,0 +1,18 @@
+<%- include("./partials/page_top.ejs") %>
+    <div class="container rounded" style="height: 50vh; margin-top: 10%">
+        <div class="d-flex h-100 align-items-center justify-content-center bg-light mt-5">
+            <form action="/portfolies/update/<%= portfolio._id %>" method="POST">
+                <h2 class="border-bottom">Update Portfolio</h2>
+                <div class="form-group">
+                    <label for="title">Title</label>
+                    <input type="text" class="form-control" id="title" name="title" value="<%= portfolio.title %>" />
+                </div>
+                <div class="form-group">
+                    <label for="description">Description</label>
+                    <textarea class="form-control" id="description" name="description" rows="5"><%= portfolio.description %></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary mt-3">Update</button>
+            </form>
+        </div>
+    </div>
+<%- include("./partials/page_bottom.ejs") %>
