@@ -1,47 +1,67 @@
 const mongoose = require('mongoose');
-const Schema = mongoose.Schema;
 const bcrypt = require('bcrypt');
 
-const UserSchema = new Schema({
-    name: {
-        type: String,
-        required: true
+const Schema = mongoose.Schema;
 
+const UserSchema = new Schema({
+    name:{
+        type: String,
+        trim: true,
+        required: true
     },
     email: {
         type: String,
-        required: true,
-        unique: true
+        uniqe:true,
+        required: true  
     },
     password: {
-        type: String,
+        type:String,
         required: true
-
+    },
+    height: {
+        type: Number,
+    },
+    weight: {
+        type: Number,
+    },
+    phone: {
+        type: String,
+    },
+    healthProblem: {
+        type: String,
     },
     role: {
         type: String,
-        required: true,
-        enum: ["antrenor", "client", "admin"],
+        enum: ['member', 'trainer', 'admin'],
+        default: 'member'
     },
-    createdAt: {
-        type: Date,
-        default: Date.now
+    proficiency: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'Proficiency'
+    },
+    enrolledPrograms: [{
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'Program'
+    }],
+    image: {
+        type: String
+    }
+});
 
-    },
-})
 UserSchema.pre('save', function(next) {
     const user = this;
-    if (!user.isModified('password')) return next();
 
-    bcrypt.genSalt(10, function(err, salt) {
-        if (err) return next(err);
-        bcrypt.hash(user.password, salt, function(err, hash) {
-            if (err) return next(err);
-            user.password = hash;
-            next();
-        });
+    if(!user.isModified('password')) return next();
+
+    bcrypt.hash(user.password, 10, (error, hash) => {
+        
+        if(error) return next(error);
+
+        user.password = hash;
+        next();
     });
 });
 
 const User = mongoose.model('User', UserSchema);
+
 module.exports = User;

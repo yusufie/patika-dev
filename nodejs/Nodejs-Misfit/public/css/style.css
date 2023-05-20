@@ -21,7 +21,7 @@
 @import url(font-awesome.min.css);
 @import url(meanmenu.css);
 @import url(owl.carousel.min.css);
-@import url(swiper.min.css);
+/* @import url(swiper.min.css); */
 @import url(slick.css);
 @import url(jquery.fancybox.min.css);
 @import url(jquery-ui.css);
@@ -420,7 +420,7 @@ button {
 .titlepage h2::before {
      position: relative;
      content: "";
-     background-color: #00274a;
+     /* background-color: #00274a; */
      width: 100px;
      height: 5px;
      top: 55px;
@@ -679,8 +679,8 @@ button {
 
 .gallery {
      background-color: #00274a;
-     margin-top: 80px;
-     padding: 60px 0 30px 0;
+     margin-top: 40px;
+     padding: 30px 0 30px 0;
 }
 
 .gallery .titlepage h2 {
@@ -939,3 +939,117 @@ ul.link_menu li a {
 .margin_0 {
      margin: 0 !important;
 }
+
+
+/* Custom CSS */
+
+.hover-btn-new{
+	color: #022c53;
+	display: inline-block;
+	font-weight: 400;
+	line-height: 46px;
+	padding: 0 17px;
+	text-transform: uppercase;
+	position: relative;
+	border: 2px solid #022c53;
+	font-size: 14px;
+	-webkit-transition: all 0.3s ease-in-out;
+	-moz-transition: all 0.3s ease-in-out;
+	-ms-transition: all 0.3s ease-in-out;
+	-o-transition: all 0.3s ease-in-out;
+	transition: all 0.3s ease-in-out;
+	border-radius: 2px;
+}
+
+.orange{
+	border-color: #eea412;
+}
+
+.btn-misfit {
+     color: #fff;
+     background-color: #022c53;
+     border-color: #022c53;
+   }
+   
+   .btn-misfit:hover {
+     /* color: #fff;
+     background-color: #022c53;
+     border-color: #022c53; */
+     color: #022c53;
+     border-color: #022c53;
+     background-color: transparent;
+   }
+   
+   .btn-misfit:focus, .btn-misfit.focus {
+     box-shadow: 0 0 0 0.2rem rgba(2, 44, 83, 0.5);
+   }
+   
+   .btn-misfit.disabled, .btn-misfit:disabled {
+     color: #fff;
+     background-color: #022c53;
+     border-color: #022c53;
+   }
+   
+   .btn-misfit:not(:disabled):not(.disabled):active, .btn-misfit:not(:disabled):not(.disabled).active,
+   .show > .btn-misfit.dropdown-toggle {
+     color: #fff;
+     background-color: #022c53;
+     border-color: #022c53;
+   }
+   
+   .btn-misfit:not(:disabled):not(.disabled):active:focus, .btn-misfit:not(:disabled):not(.disabled).active:focus,
+   .show > .btn-misfit.dropdown-toggle:focus {
+     box-shadow: 0 0 0 0.2rem rgba(2, 44, 83, 0.5);
+   }
+
+
+.btn-outline-misfit {
+     color: #022c53;
+     background-color: transparent;
+     background-image: none;
+     border-color: #022c53;
+   }
+   
+   .btn-outline-misfit:hover {
+     color: #fff;
+     background-color: #022c53;
+     border-color: #022c53;
+   }
+   
+   .btn-outline-misfit:focus, .btn-outline-misfit.focus {
+     box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.5);
+   }
+   
+   .btn-outline-misfit.disabled, .btn-outline-misfit:disabled {
+     color: #022c53;
+     background-color: transparent;
+   }
+   
+   .btn-outline-misfit:not(:disabled):not(.disabled):active, .btn-outline-misfit:not(:disabled):not(.disabled).active,
+   .show > .btn-outline-misfit.dropdown-toggle {
+     color: #fff;
+     background-color: #022c53;
+     border-color: #022c53;
+   }
+
+   .program-content {
+     padding: 0 15px;
+     margin-bottom: 25px;
+     height: 50px;
+     background: #fff;
+     color: #00274a;
+     font-size: 16px;
+     font-weight: normal;
+     border-radius: 10px;
+     border: #0f98f8 solid 1px;
+   }
+   .program-content:focus{
+     border: #0f98f8 solid 1px !important;
+   }
+   .program-content-delete-btn{
+     color: #fff;
+     background-color: #022c53;
+     border-color: #022c53;
+   }
+
+   

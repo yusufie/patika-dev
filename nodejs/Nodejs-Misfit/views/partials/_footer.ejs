@@ -1,60 +1,136 @@
-  <!--  footer -->
-  <footer>
-    <div class="footer">
-       <div class="container">
-          <div class="row">
-             <div class="col-md-3">
-                <h3>Link Menu</h3>
-                <ul class="link_menu">
-                   <li><a href="#">Home</a></li>
-                   <li><a href="/about"> About</a></li>
-                   <li><a href="/service">Services</a></li>
-                   <li><a href="/news">News</a></li>
-                   <li><a href="/trainer">Trainer</a></li>
-                   <li><a href="/gallery">Gallery</a></li>
-                   <li><a href="/contact">Contact Us</a></li>
-                </ul>
-             </div>
-             <div class=" col-md-5">
-                <h3>Contact US</h3>
-                <ul class="conta">
-                   <li><i class="fa fa-map-marker" aria-hidden="true"></i>Address : Lorem Ipsum is <br>simply dummy 
-                   </li>
-                   <li><i class="fa fa-mobile" aria-hidden="true"></i> Phone :  +(1234) 567 890</li>
-                   <li> <i class="fa fa-envelope" aria-hidden="true"></i><a href="#">Email : demo@gmail.com</a></li>
-                </ul>
-             </div>
-             <div class="col-md-4">
-                <h3>News letter</h3>
-                <form class="bottom_form">
-                   <input class="enter" placeholder="Enter your email" type="text" name="Enter your email">
-                   <button class="sub_btn">subscribe</button>
-                </form>
-             </div>
-          </div>
-       </div>
-       <div class="copyright">
-          <div class="container">
-             <div class="row">
-                <div class="col-md-10 offset-md-1">
-                   <p>© 2019 All Rights Reserved. Design by <a href="https://html.design/"> Free Html Templates</a></p>
-                </div>
-             </div>
-          </div>
-       </div>
-    </div>
- </footer>
- <!-- end footer -->
- <!-- Javascript files-->
- <script src="/js/jquery.min.js"></script>
- <script src="/js/bootstrap.bundle.min.js"></script>
- <script src="/js/jquery-3.0.0.min.js"></script>
- <!-- sidebar -->
- <script src="/js/jquery.mCustomScrollbar.concat.min.js"></script>
- <script src="/js/custom.js"></script>
- <script src="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.8.1/baguetteBox.min.js"></script>
- <script>
-    baguetteBox.run('.tz-gallery');
- </script>
-</body>
+      <!--  footer -->
+      <footer>
+        <div class="footer">
+           <div class="container">
+              <div class="row">
+                 <div class="col-md-3">
+                    <h3>Link Menu</h3>
+                    <ul class="link_menu">
+                       <li><a href="#">Home</a></li>
+                       <li><a href="about.html"> About</a></li>
+                       <li><a href="service.html">Services</a></li>
+                       <li><a href="news.html">News</a></li>
+                       <li><a href="trainer.html">Trainer</a></li>     
+                       <li><a href="gallery.html">Gallery</a></li>
+                       <li><a href="contact.html">Contact Us</a></li>
+                    </ul>
+                 </div>
+                 <div class=" col-md-5">
+                    <h3>Contact US</h3>
+                    <ul class="conta">
+                       <li><i class="fa fa-map-marker" aria-hidden="true"></i>Address : Lorem Ipsum is <br>simply dummy 
+                       </li>
+                       <li><i class="fa fa-mobile" aria-hidden="true"></i> Phone :  +(1234) 567 890</li>
+                       <li> <i class="fa fa-envelope" aria-hidden="true"></i><a href="#">Email : demo@gmail.com</a></li>
+                    </ul>
+                 </div>
+                 <div class="col-md-4">
+                    <h3>News letter</h3>
+                    <form class="bottom_form">
+                       <input class="enter" placeholder="Enter your email" type="text" name="Enter your email">
+                       <button class="sub_btn">subscribe</button>
+                    </form>
+                 </div>
+              </div>
+           </div>
+           <div class="copyright">
+              <div class="container">
+                 <div class="row">
+                    <div class="col-md-10 offset-md-1">
+                       <p>© 2019 All Rights Reserved. Design by <a href="https://html.design/"> Free Html Templates</a></p>
+                    </div>
+                 </div>
+              </div>
+           </div>
+        </div>
+     </footer>
+     <!-- end footer -->
+     <!-- Javascript files-->
+     <script src="/js/jquery.min.js"></script>
+     <script src="/js/bootstrap.bundle.min.js"></script>
+     <script src="/js/jquery-3.0.0.min.js"></script>
+     <!-- sidebar -->
+     <script src="/js/jquery.mCustomScrollbar.concat.min.js"></script>
+     <script src="/js/custom.js"></script>
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.8.1/baguetteBox.min.js"></script>
+     <!-- <script>
+        baguetteBox.run('.tz-gallery');
+     </script> -->
+     <script>
+         let programStep = 0;
+         function displayAntrenmanCategory(){
+            const antrenmanCategory = document.getElementById('antrenmanCategorySelect');
+            
+            categoryLink = document.getElementById('categorySearchLink');
+            
+            if(antrenmanCategory.selectedIndex === 0) {
+               categoryLink.href = '/programs';
+            }
+            else {
+               categoryLink.href = '/programs?categories='+antrenmanCategory.value;
+            }
+            categoryLink.click();
+         }
+
+         function clearFormData(formID) {
+            document.getElementById(formID).reset();
+         }
+
+         function addProgramContent(){
+            let programStepId = 'programStep_'+programStep;
+            console.log('addProgramContent button pressed');
+            const programContentField = document.getElementById('addProgramContentField');
+            
+            const inputGroupDiv = document.createElement('div');
+            const inputGroupPrependDiv = document.createElement('div');
+            const btnEl = document.createElement('button');
+            const spanEl = document.createElement('span');
+            const iTagEl = document.createElement('i');
+            const inputField = document.createElement('input');
+
+            // set attribute
+            iTagEl.setAttribute('class', 'fa fa-trash');
+            spanEl.setAttribute('aria-hidden', 'true');
+            btnEl.setAttribute('class', 'btn program-content-delete-btn');
+            btnEl.setAttribute('onclick', '')
+            inputGroupPrependDiv.setAttribute('class', 'input-group-prepend');
+            inputField.setAttribute('type', 'text');
+            inputField.setAttribute('class', 'form-control program-content');
+            inputField.setAttribute('placeholder', 'Program Content');
+            inputField.setAttribute('name', 'content');
+            inputField.required = true;
+            inputGroupDiv.setAttribute('class', 'input-group mb-3');
+            inputGroupDiv.setAttribute('id', programStepId);
+
+            // clear btn functionality
+            btnEl.addEventListener('click', ()=>{
+               document.getElementById(programStepId).remove();
+            });
+
+            // append child
+            spanEl.appendChild(iTagEl);
+            btnEl.appendChild(spanEl);
+            inputGroupPrependDiv.appendChild(btnEl);
+            inputGroupDiv.appendChild(inputGroupPrependDiv);
+            inputGroupDiv.appendChild(inputField);
+
+            programContentField.appendChild(inputGroupDiv);
+            
+            programStep += 1;
+         }
+
+         function PreviewImage(imageID, imageClear = false) {
+            if(imageClear === true){
+                  document.getElementById(imageID).src = "";
+            }
+            else {
+                  let oFReader = new FileReader();
+                  oFReader.readAsDataURL(document.getElementById('profilePhotoInputModal').files[0]);
+                  oFReader.onload = function (oFREvent) {
+                     document.getElementById(imageID).src = oFREvent.target.result;
+                  };
+            } 
+         };
+     </script>
+  </body>
 </html>

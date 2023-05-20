@@ -1,39 +1,47 @@
-const User = require("../models/User");
+const User = require('../models/User');
 
-exports.getIndexPage = async(req,res) => {
-    res.render("index", {
-        page_name: "index"
-    })
-}
-exports.getAboutPage = async(req,res) => {
-    res.render("about", {
-        page_name: "about"
-    })
-}
-exports.getContactPage = async(req,res) => {
-    res.render("contact", {
-        page_name: "contact"
-    })
-}
-exports.getGalleryPage = async(req,res) => {
-    res.render("gallery", {
-        page_name: "gallery"
-    })
-}
-exports.getTrainerPage = async(req,res) => {
-    const antrenors = await User.find({role: "antrenor"})
-    res.render("trainer", {
-        page_name: "trainer",
-        antrenors
-    })
-}
-exports.getLoginPage =  async(req,res) => {
-    res.render("login", {
-        page_name: "login"
-    })
-}
-exports.getRegisterPage =  async(req,res) => {
-    res.render("register", {
-        page_name: "register"
-    })
-}
+exports.getIndexPage = (req, res) => {
+    res.render('index');
+};
+exports.getAboutPage = (req, res) => {
+    res.render('about');
+};
+exports.getTrainerPage = async (req, res) => {
+
+    try {
+        const trainers = await User.find({role: 'trainer'});
+
+        res.render('trainers', {
+            pageName: 'trainer',
+            trainers: trainers
+        });
+    } catch (err) {
+        res.status(400).json({
+            status: 'failed',
+            error: err.message
+        });
+    }
+};
+
+exports.getTrainerSinglePage = async (req, res) => {
+
+    try {
+        const trainer = await User.findById(req.params.id).populate('proficiency');
+        res.render('trainer', {
+            pageName: 'trainer',
+            trainer: trainer
+        });
+    } catch (err) {
+        res.status(400),json({
+            status: 'failed',
+            error: err.message
+        });
+    }
+};
+
+exports.getLoginPage = (req, res) => {
+    res.render('login');
+};
+exports.getRegisterPage = (req, res) => {
+    res.render('register');
+};

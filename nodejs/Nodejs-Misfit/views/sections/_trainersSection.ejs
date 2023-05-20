@@ -1,0 +1,30 @@
+<!-- trainers -->
+<%if(trainers){%>
+   <div  class="trainers">
+      <div class="container">
+         
+         <div class="row">
+            <% for(let i = 0; i < trainers.length; i++){ %>
+               <div class="col-md-4">
+                  <div id="trai" class="trainer_box">
+                     <div class="trainer_img">
+                        <figure>
+                          <a class="gallery_img mb-0" href="/trainer/<%= trainers[i]._id%>">
+                              <img src="<%= trainers[i].image %>" alt="#"/>
+                           </a>
+                        </figure>
+                     </div>
+                     <div class="trainer">
+                        <a class="gallery_img mb-0" href="/trainer/<%= trainers[i]._id%>">
+                           <h3><%= trainers[i].name%></h3>
+                           <p><%= trainers[i].role%></p>
+                        </a>
+                     </div>
+                  </div>
+               </div>
+            <% } %>
+         </div>
+      </div>
+   </div>
+<%}%>
+<!-- end trainers -->

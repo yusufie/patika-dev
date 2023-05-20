@@ -1,21 +1,33 @@
-const express = require('express');
-const router = express.Router();
+const express = require('express')
+const {body} = require('express-validator');
+
 const authController = require('../controllers/authController');
+const authMiddleware = require('../middlewares/authMiddleware');
 
+const User = require('../models/User');
 
-router.route("/login").post(authController.loginUser);
-router.route("/register").post(authController.registerUser);
-router.route("/logout").post(authController.logoutUser);
+const router = express.Router();
 
+router.route('/signup').post(
+    [
+        body('name').not().isEmpty().withMessage('Name cannot be empty.'),
+        body('email').isEmail().withMessage('Invalid email address.')
+        .custom((userEmail) => {
+            return User.findOne({email: userEmail}).then( user => {
+                if(user){
+                    return Promise.reject('Email is already exists.');
+                }
+            })
+        }),
+        body('password').not().isEmpty().withMessage('Password cannot be empty.')
+    ],
+    authController.createUser
+);
 
-router.get("/dashboard", (req, res) => {
-  console.log("Role:", req.session.user.role); // Add this line
-  if (req.session.user.role === "antrenor") {
-    res.render("dashboard", { user: req.session.user });
-  } else {
-    res.redirect("/"); // Redirect to home page if the user is not logged in as an antrenor
-  }
-});
-  
-
-module.exports = router
+router.route('/login').post(authController.loginUser);
+router.route('/logout').get(authController.logoutUser);
+router.route('/dashboard').get(authMiddleware, authController.getDashboardPage);
+router.route('/:id').delete(authController.deleteUser);
+router.route('/:id').put(authController.updateUser);
+router.route('/photo/:id').post(authController.addProfilePhoto);
+module.exports = router;
