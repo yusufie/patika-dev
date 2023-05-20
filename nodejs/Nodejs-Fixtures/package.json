@@ -1,0 +1,36 @@
+{
+  "name": "Nodejs-Fixtures",
+  "version": "1.0.0",
+  "description": "Furniture Website with Nodejs",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": ""
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": ""
+  },
+  "homepage": "",
+  "dependencies": {
+    "bcrypt": "^5.0.1",
+    "connect-flash": "^0.1.1",
+    "connect-mongo": "^4.6.0",
+    "ejs": "^3.1.6",
+    "express": "^4.17.1",
+    "express-fileupload": "^1.2.1",
+    "express-session": "^1.17.2",
+    "express-validator": "^6.13.0",
+    "method-override": "^3.0.0",
+    "mongoose": "^6.0.12",
+    "nodemailer": "^6.7.0",
+    "slugify": "^1.6.2"
+  },
+  "devDependencies": {
+    "supervisor": "^0.12.0"
+  }
+}

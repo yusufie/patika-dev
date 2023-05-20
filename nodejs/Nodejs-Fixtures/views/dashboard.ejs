@@ -1,0 +1,271 @@
+<%- include('partials/_header'); %>
+<%- include('partials/_navigation'); %>
+<% if(user) { %>
+
+   <% if(user.role==='admin' ) { %>
+      <!-- blog section start -->
+      <div class="blog_section layout_padding">
+         <div class="container">
+            <div class="row">
+               <div class="container text-center">
+						<h1>
+							<%= user.name %><span class="m_1"></span>
+						</h1>
+					</div>
+               
+
+
+               	<!-- Modal Button -->
+						<div class="col-lg-12 text-center ">
+							<button class="btn btn-lg btn-info text-white " href="#"
+								data-toggle="modal" data-target="#addFurniture"><span>ADD NEW
+									PRODUCT</span></button>
+						</div>
+                  <div class="offset-2 col-lg-8 mt-5">
+                     <% if (flashMessages) { %>
+                        <% if (flashMessages.success) { %>
+                           <div class="alert alert-success">
+                              <%= flashMessages.success %>
+                           </div>
+            
+                        <% } else if (flashMessages.error) { %>
+                           <div class="alert alert-danger">
+                              <%= flashMessages.error %>
+                           </div>
+                        <% } %>
+            
+                     <% } %>
+                  </div>
+
+                  <!-- ADD Modal -->
+			<div class="modal fade" id="addFurniture" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+            <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+            <div class="modal-content">
+            <div class="modal-body customer-box">
+               <!-- Tab panes -->
+               <div class="tab-content">
+                  <div class="tab-pane active" id="Login">
+                     <form method="POST" action="/furnitures" class="form-horizontal" >
+                        <div class="form-group">
+                           <div class="col-lg-12">
+                              <label for="name">Furniture Name</label><br>
+                              <input type="text" name="name" class="form-control"  placeholder="Furniture Name">
+                           </div>
+                        </div>
+                        
+                        <div class="form-group">
+                           <div class="col-lg-12">
+                              <label for="price">Price</label><br>
+                           <input type="text" name="price" class="form-control"  placeholder="Furniture price">
+                        </div>
+                     </div>
+                        <div class="form-group">
+                           <div class="col-lg-12 ">
+                              <input type="hidden" name="role" class="form-control"  value="<%= user.role %>">
+                           </div>
+                        </div>
+                         </div>
+
+                        <div class="form-group">
+                           <div class="col-lg-12 mb-5">
+                              <label for="category">Category</label>
+                              <select class="form-control" name="category">
+                                 <% for (let i=0; i< categories.length; i++) { %>
+                                 <option value="<%= categories[i]._id %>"><%= categories[i].name %></option>
+                                 <% } %>	
+                              </select>
+                           </div>
+                           </div><br>
+                        </div>
+                        <div class="row">
+                           <div class="col-sm-10">
+                              <button type="submit" class="btn btn-primary btn-radius ">
+                                 Submit
+                              </button>
+                              <button type="submit" class="btn btn-dark btn-radius "
+                                 data-dismiss="modal" aria-hidden="true">
+                                 Cancel
+                              </button>
+                           </div>
+                        </div>
+                     </form>
+                  </div>
+               </div>
+            </div>
+            </div>
+            </div>
+            </div>
+
+
+ 
+<!-- ADD Category Modal -->
+<div class="modal fade" id="addCategory" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+   <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+   <div class="modal-content">
+   <div class="modal-body customer-box">
+      <!-- Tab panes -->
+      <div class="tab-content">
+         <div class="tab-pane active" id="Login">
+            <form method="POST" action="/categories" class="form-horizontal">
+               <div class="form-group">
+                  <div class="col-sm-12">
+                     <input type="text" name="name" class="form-control"  placeholder="Category Name">
+                  </div>
+               </div>
+               <div class="row">
+                  <div class="col-sm-10">
+                     <button type="submit" class="btn btn-primary byn-md btn-radius">
+                        Submit
+                     </button>
+                     <button type="submit" class="btn btn-dark btn-md btn-radius "
+                        data-dismiss="modal" aria-hidden="true">
+                        Cancel
+                     </button>
+                  </div>
+               </div>
+            </form>
+         </div>
+      </div>
+   </div>
+   </div>
+   </div>
+   </div>
+            </div>
+         </div>
+
+         <div class="container ">
+            <div class="blog_section_2 layout_padding">
+               <div class="row">
+               	<div class="row ">
+							<h2>Users</h2>
+							<table class="table">
+								<thead>
+								  <tr>
+									<th scope="col">ID#</th>
+									<th scope="col">Email</th>
+									<th scope="col">Role</th>
+									<th scope="col">Delete</th>
+								  </tr>
+								</thead>
+								<tbody>
+							<% for (let i=0; i< users.length; i++) { %>
+								  <tr>
+									<th scope="row"><%=users[i]._id %></th>
+									<td><%=users[i].email %></td>
+									<td><%=users[i].role %></td>
+									<td><a href="/users/<%= users[i]._id %>?_method=DELETE" 
+										onclick="return confirm('ARE YOU SURE')"
+										class="btn btn-danger text-white btn-sm"><span>DELETE</span></a></td>
+								  </tr>
+							<% } %>
+								</tbody>
+							  </table>
+						</div><!-- end row -->
+						<div class="row mt-5">
+							<h2>Categories</h2>
+							<table class="table">
+								<thead>
+								  <tr>
+									<th scope="col">ID#</th>
+									<th scope="col">Name</th>
+									<th scope="col">Add</th>
+									<th scope="col">Delete</th>
+								  </tr>
+								</thead>
+								<tbody>
+							<% for (let i=0; i< categories.length; i++) { %>
+								  <tr>
+									<th scope="row"><%=categories[i]._id %></th>
+									<td><%=categories[i].name %></td>
+									<td><button class="btn btn-lg btn-warning  text-white btn-sm" href="#"
+										data-toggle="modal" data-target="#addCategory"><span>
+											ADD</span></button></td>
+									<td><a href="/categories/<%= categories[i]._id %>?_method=DELETE" 
+										onclick="return confirm('ARE YOU SURE')"
+										class="btn btn-danger text-white btn-sm"><span>DELETE</span></a></td>
+								  </tr>
+							<% } %>
+								</tbody>
+							  </table>
+						</div><!-- end row -->   
+               </div>
+            </div>
+            
+         </div>
+      </div>
+
+
+
+
+      <!-- blog section end -->
+
+      	
+      <% } %>
+
+      <% if(user.role==='member' ) { %>
+         <div class="container text-center ">
+            <div class="row">
+               <div class="col-lg-12 mt-5">
+                  <h1 class="blog_taital" style="color: orange;">Welcome..</h1>
+                  <h3><%= user.name %><span class="m_1"></span> </h3>
+                 
+               </div>
+            </div>
+            
+         </div>
+
+         <div class="offset-2 col-lg-8 mt-5">
+            <% if (flashMessages) { %>
+               <% if (flashMessages.success) { %>
+                  <div class="alert alert-success">
+                     <%= flashMessages.success %>
+                  </div>
+   
+               <% } else if (flashMessages.error) { %>
+                  <div class="alert alert-danger">
+                     <%= flashMessages.error %>
+                  </div>
+               <% } %>
+   
+            <% } %>
+         </div>
+        
+
+         <div class="container">
+            
+           
+            <div class="blog_section_2 layout_padding">
+               <div class="container">
+                  <div class="row">
+                     <div class="col-md-12">
+                        <h1 style="color: midnightblue;" class="blog_taital">Your Orders</h1>
+                     </div>
+                  </div>
+               </div>
+              
+               <div class="row">
+                  <% for (let i=0; i< user.furnitures.length; i++) { %>
+                  <div class="col-lg-4 col-sm-12">
+                     <div class="blog_box">
+                        <div class="blog_img"><img src="/images/blog-img1.png"></div>
+                        <p class="chair_text"><a href="/furnitures/<%= user.furnitures[i].slug %>" title=""><%= user.furnitures[i].name %> </a></p>
+                        <form method="POST" action="/furnitures/cancel">
+                           <input type="hidden" name="furniture_id" value="<%= user.furnitures[i]._id %>">
+                           <button class="btn btn-lg btn-danger text-white btn-sm"><span>Cancel<i class="fa fa-close"></i></span></button>
+                        </form>
+                        
+                     </div>
+                  </div>
+                  <% } %>
+                  <% } %> 
+               </div>
+               
+            </div>  </div>
+           
+          
+       
+      <%- include('partials/_footer'); %> 
+      <% } %>
+
+		
+     

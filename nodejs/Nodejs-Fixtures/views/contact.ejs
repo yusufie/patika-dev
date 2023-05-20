@@ -1,0 +1,42 @@
+
+ <%- include('partials/_header'); %>
+ <%- include('partials/_navigation'); %>
+      <!-- contact section start -->
+      <div class="contact_section layout_padding">
+         <div class="container">
+            <div class="row">
+               <div class="col-sm-12">
+                  <h1 class="contact_taital contact_heading">Contact Us</h1>
+               </div>
+            </div>
+            <div class="contact_section_2">
+               <div class="row">
+                  <div class="col-md-12">
+                     <div class="mail_section map_form_container">
+                        <% if (flashMessages) { %>
+                           <% if (flashMessages.success) { %>
+                               <div class="alert alert-success">
+                                   <%= flashMessages.success %>
+                               </div>
+                           <% } else if (flashMessages.error) { %>
+                               <div class="alert alert-danger">
+                                   <%= flashMessages.error %>
+                               </div>
+                           <% } %>
+                       <% } %>
+                        <form id="request" action="/contact" name="contactform" method="POST">
+                           <input type="text" class="mail_text" name="name" id="first_name"  placeholder="Your Name">
+                           <input type="email" class="mail_text" name="email" id="email"  placeholder="Your Email">
+                           <textarea class="massage-bt" placeholder="Massage" rows="5" id="message" name="message"></textarea><br>
+                           <div class="offset-3 col-lg-6 mt-5">
+                              <button type="submit" class="btn btn-warning btn-block">Send</button>
+                           </div>
+                        </form>
+                        
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+      <!-- contact section end -->
+      <%- include('partials/_footer'); %>
